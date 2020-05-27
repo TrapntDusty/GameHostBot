@@ -5,10 +5,10 @@ var ms = require('./minestat');
 client.login('TOKEN HERE');
 
 let serverStats = {
-    GuildID: '715216913160208445',
+    GuildID: 'ID DE LA GUILD',
 };
 
-ms.init('104.129.46.132', 25620, function(result) {
+ms.init('IP DEL SERVER', 00000 , function(result) { //00000 sera el port del servidor
     // console.log(" server status of " + ms.address + " on port " + ms.port + ":");
     if (ms.online) {
         console.log("Server is online \nversion " + ms.version + " \n" + ms.current_players + " out of " + ms.max_players + " players." + "\n" + "Latency: " + ms.latency + "ms");
