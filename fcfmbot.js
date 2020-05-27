@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
 var ms = require('./minestat');
-client.login('NTk2MTM4NzczMTU5NDc3MjU5.XSBCZw.LmniRspo_H9MAvzoKNSNm1Gy00c');
+client.login('your token here');
 
 let serverStats = {
     GuildID: '715216913160208445',
