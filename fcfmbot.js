@@ -5,7 +5,7 @@ var ms = require('./minestat');
 client.login('TOKEN HERE');
 
 let serverStats = {
-    GuildID: 'ID DE LA GUILD',
+    GuildID: 'ID DEL TEXT OR VOICE CHANNEL',
 };
 
 ms.init('IP DEL SERVER', 00000 , function(result) { //00000 sera el port del servidor
