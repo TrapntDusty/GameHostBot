@@ -30,7 +30,10 @@ client.on("ready", () => {
     }
     client.channels.cache.get(serverStats.GuildID).send({ embed: Embed });
 })
-
+let Active_Users = ms.current_players;
+let Maxim_Users = ms.max_players;
+let laten = ms.latency;
+let vers = ms.version;
 const Embed = {
     color: 0x0099ff,
     title: 'Minecraft FCFM Server',
@@ -46,7 +49,7 @@ const Embed = {
     },
     fields: [{
             name: 'Servidor De Minecraft Java',
-            value: 'Servidor de Minecraft Official del Discord de FCFM\nLink del Discord de FCFM : ',
+            value: 'Servidor de Minecraft Official del Discord de FCFM\nLink del Discord de FCFM : https://discord.gg/AbagGY ',
         },
         {
             name: '\u200b',
@@ -55,17 +58,17 @@ const Embed = {
         },
         {
             name: 'Version del Servidor',
-            value: `${ms.version}`,
+            value: `${vers}`, //AAAAAAAAAAAAAAAAAAAAAAAA
             inline: true,
         },
         {
             name: 'Current and Max Players',
-            value: `${ms.current_players} of  ${ms.max_players}`,
+            value: `${Active_Users} of  ${Maxim_Users}`, //AAAAAAAAAAAAAAAAAAAAA
             inline: true,
         },
         {
             name: 'Latency',
-            value: ms.latency,
+            value: laten, //aaaaaaaaaaaaaaaaaaa
             inline: true,
         },
     ],
@@ -78,3 +81,5 @@ const Embed = {
         icon_url: 'https://i.imgur.com/JFGp2jg.jpg',
     },
 };
+
+//make it repeat itself from time to time
