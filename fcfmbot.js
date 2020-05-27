@@ -17,10 +17,10 @@ ms.init('IP DEL SERVER', 00000 , function(result) { //00000 sera el port del ser
     }
 });
 
-client.on('ready', () => {
+client.on('ready', () => { // Some fancy things i wanted to add 
     console.log("test");
     client.user.setActivity('some Jazz', { type: 'LISTENING' });
-});
+}); // you can remove it if you want
 
 client.on("ready", () => {
     if (ms.online) {
