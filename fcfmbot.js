@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
 var ms = require('./minestat');
-client.login('your token here');
+client.login('NTk2MTM4NzczMTU5NDc3MjU5.Xs7GKQ.FXPsUv2hRFvVWxoPSar-T3Sm4YI');
 
 let serverStats = {
     GuildID: '715216913160208445',
@@ -28,25 +28,25 @@ client.on("ready", () => {
     } else {
         client.channels.cache.get(serverStats.GuildID).setName("Server Status: Offline ");
     }
-    client.channels.cache.get(serverStats.GuildID).send({ embed: exampleEmbed });
+    client.channels.cache.get(serverStats.GuildID).send({ embed: Embed });
 })
 
-const exampleEmbed = {
+const Embed = {
     color: 0x0099ff,
     title: 'Minecraft FCFM Server',
-    url: 'https://www.facebook.com/photo/?fbid=2115096305189212&set=a.207529222612606',
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     author: {
         name: 'play.fcfm.site:25620',
         icon_url: 'https://i.imgur.com/M4zPwW7.jpg',
-        url: 'https://discord.js.org',
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     },
     description: 'Some description here',
     thumbnail: {
         url: 'https://i.imgur.com/M4zPwW7.jpg',
     },
     fields: [{
-            name: 'Regular field title',
-            value: 'Some value here',
+            name: 'Servidor De Minecraft Java',
+            value: 'Servidor de Minecraft Official del Discord de FCFM\nLink del Discord de FCFM : ',
         },
         {
             name: '\u200b',
@@ -54,18 +54,18 @@ const exampleEmbed = {
             inline: false,
         },
         {
-            name: 'Server Status',
-            value: 'Some value here',
+            name: 'Version del Servidor',
+            value: `${ms.version}`,
             inline: true,
         },
         {
-            name: 'Inline field title',
-            value: 'Some value here',
+            name: 'Current and Max Players',
+            value: `${ms.current_players} of  ${ms.max_players}`,
             inline: true,
         },
         {
-            name: 'Inline field title',
-            value: 'Some value here',
+            name: 'Latency',
+            value: ms.latency,
             inline: true,
         },
     ],
@@ -74,7 +74,7 @@ const exampleEmbed = {
     },
     timestamp: new Date(),
     footer: {
-        text: 'Open Code Github: ',
-        icon_url: 'https://i.imgur.com/M4zPwW7.jpg',
+        text: 'Open Code Github:  https://github.com/TrapntDusty/GameHostBot ',
+        icon_url: 'https://i.imgur.com/JFGp2jg.jpg',
     },
 };
