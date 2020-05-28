@@ -36,20 +36,20 @@ let laten = ms.latency;
 let vers = ms.version;
 const Embed = {
     color: 0x0099ff,
-    title: 'Minecraft FCFM Server',
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    title: 'cool title',
+    url: 'some url',
     author: {
-        name: 'play.fcfm.site:25620',
-        icon_url: 'https://i.imgur.com/M4zPwW7.jpg',
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        name: 'some name',
+        icon_url: 'some icon',
+        url: 'some url',
     },
     description: 'Some description here',
     thumbnail: {
-        url: 'https://i.imgur.com/M4zPwW7.jpg',
+        url: 'some url',
     },
     fields: [{
-            name: 'Servidor De Minecraft Java',
-            value: 'Servidor de Minecraft Official del Discord de FCFM\nLink del Discord de FCFM : https://discord.gg/AbagGY ',
+            name: 'some name',
+            value: 'some description ',
         },
         {
             name: '\u200b',
@@ -57,28 +57,28 @@ const Embed = {
             inline: false,
         },
         {
-            name: 'Version del Servidor',
-            value: `${vers}`, //AAAAAAAAAAAAAAAAAAAAAAAA
+            name: 'something',
+            value: `${vers}`, //not working properly , throwing undefined
             inline: true,
         },
         {
-            name: 'Current and Max Players',
-            value: `${Active_Users} of  ${Maxim_Users}`, //AAAAAAAAAAAAAAAAAAAAA
+            name: 'something',
+            value: `${Active_Users} of  ${Maxim_Users}`, //not working properly , throwing undefined
             inline: true,
         },
         {
-            name: 'Latency',
-            value: laten, //aaaaaaaaaaaaaaaaaaa
+            name: 'something',
+            value: laten, //not working properly , throwing undefined
             inline: true,
         },
     ],
     image: {
-        url: 'https://i.imgur.com/M4zPwW7.jpg',
+        url: 'some url ',
     },
     timestamp: new Date(),
     footer: {
-        text: 'Open Code Github:  https://github.com/TrapntDusty/GameHostBot ',
-        icon_url: 'https://i.imgur.com/JFGp2jg.jpg',
+        text: 'foot text ',
+        icon_url: 'foot url',
     },
 };
 
