@@ -2,84 +2,86 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
 var ms = require('./minestat');
-client.login('TOKEN HERE');
-
-let serverStats = {
-    GuildID: 'ID TEXT OR VOICE CHANNEL',
-};
-
-ms.init('IP DEL SERVER', 00000 , function(result) { //00000 sera el port del servidor
-    // console.log(" server status of " + ms.address + " on port " + ms.port + ":");
-    if (ms.online) {
-        console.log("Server is online \nversion " + ms.version + " \n" + ms.current_players + " out of " + ms.max_players + " players." + "\n" + "Latency: " + ms.latency + "ms");
-    } else {
-        console.log("Server is offline!");
-    }
+client.login('YOUR BOT TOKEN HERE');
+async function GetFreshData() {
+    await ms.init('IP HERE', PORT HERE , function(result) {});
+    return GetData();
+}
+client.on('ready', () => {
+    client.user.setActivity('something fancy ', { type: 'LISTENING' });
 });
 
-client.on('ready', () => { // Some fancy things i wanted to add 
-    console.log("test");
-    client.user.setActivity('some Jazz', { type: 'LISTENING' });
-}); // you can remove it if you want
+let serverStats = {
+    GuildID: 'ID LOBBY OR VOICE CHAT',
+};
 
-client.on("ready", () => {
-    if (ms.online) {
+function GetData() {
+    return JSON.parse(fs.readFileSync("./data.json", "UTF-8"));
+}
+
+async function repetitivething(msg) {
+    data = await GetFreshData();
+    if (data.array[0] == true) {
         client.channels.cache.get(serverStats.GuildID).setName("Server Status: Online");
     } else {
         client.channels.cache.get(serverStats.GuildID).setName("Server Status: Offline ");
     }
-    client.channels.cache.get(serverStats.GuildID).send({ embed: Embed });
-})
-let Active_Users = ms.current_players;
-let Maxim_Users = ms.max_players;
-let laten = ms.latency;
-let vers = ms.version;
-const Embed = {
-    color: 0x0099ff,
-    title: 'cool title',
-    url: 'some url',
-    author: {
-        name: 'some name',
-        icon_url: 'some icon',
-        url: 'some url',
-    },
-    description: 'Some description here',
-    thumbnail: {
-        url: 'some url',
-    },
-    fields: [{
-            name: 'some name',
-            value: 'some description ',
-        },
-        {
-            name: '\u200b',
-            value: '\u200b',
-            inline: false,
-        },
-        {
-            name: 'something',
-            value: `${vers}`, //not working properly , throwing undefined
-            inline: true,
-        },
-        {
-            name: 'something',
-            value: `${Active_Users} of  ${Maxim_Users}`, //not working properly , throwing undefined
-            inline: true,
-        },
-        {
-            name: 'something',
-            value: laten, //not working properly , throwing undefined
-            inline: true,
-        },
-    ],
-    image: {
-        url: 'some url ',
-    },
-    timestamp: new Date(),
-    footer: {
-        text: 'foot text ',
-        icon_url: 'foot url',
-    },
-};
+    msg.edit({ embed: getembed() });
+}
 
-//make it repeat itself from time to time
+
+client.on("ready", async() => {
+    channel = client.channels.cache.get(serverStats.GuildID)
+    msg = await channel.send({ embed: getembed() });
+    setInterval(function() {
+        repetitivething(msg)
+    }, 10000)
+});
+
+function getembed() {
+    data = GetData();
+    return {
+        color: 0x0099ff,
+        title: 'TITLE',
+        url: 'URL',
+        author: {
+            name: 'NAME',
+            icon_url: 'ICON',
+            url: 'URL',
+        },
+        description: 'DESCRIPTION',
+        thumbnail: {
+            url: 'URL',
+        },
+        fields: [{
+                name: 'NAME',
+                value: 'VALUE',
+            },
+            {
+                name: '\u200b',
+                value: '\u200b',
+                inline: false,
+            },
+            {
+                name: 'VERSION',
+                value: data.array[1],
+                inline: true,
+            },
+            {
+                name: 'Current and Max Players',
+                value: data.array[2] + " of " + data.array[3],
+                inline: true,
+            },
+        ],
+        image: {
+            url: 'URL',
+        },
+        timestamp: new Date(),
+        footer: {
+            text: 'Open Code Github:  https://github.com/TrapntDusty/GameHostBot ',
+            icon_url: 'https://i.imgur.com/JFGp2jg.jpg',
+        },
+    };
+}
+
+//A lot of thanks to Pwall to help me through everything on this bot, without your help i would still be stuck 
