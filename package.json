@@ -1,0 +1,14 @@
+{
+    "name": "minestat-master",
+    "version": "1.0.0",
+    "description": "",
+    "main": "fcfmbot.js",
+    "scripts": {
+        "devstart": "nodemon fcfmbot.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
