@@ -1,5 +1,5 @@
 # GameHostBot
-Hey Welcome to a project i tried to do wich grabs the conection to a server and projects it into a discord chat as an auto-updated embed 
+Hey Welcome to a project i tried to do wich grabs the conection of a minecraft server and send it into a discord chat as an auto-updated embed and also change the name of the channel of the online/offline status 
 as usual is free for everyone to grab it make sure to have a node_modules folder as a .git 
 is my first open project for anyone to use it 
 so i hope someone likes it.
