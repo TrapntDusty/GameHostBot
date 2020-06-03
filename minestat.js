@@ -71,3 +71,4 @@ function si(server_info) {
     };
     fs.writeFileSync("./data.json", JSON.stringify(array, null, 4));
 }
+//A lot of thanks to Pwall to help me through everything on this bot, without your help i would still be stuck 
